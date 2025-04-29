@@ -16,10 +16,8 @@ exports.getCart = async (req, res) => {
 
 exports.addToCart = async (req, res) => {
   const { productId, quantity } = req.body;
-
   const user = await User.findByPk(req.user.id, { include: Cart });
   const cart = user.Cart;
-
   const [item, created] = await CartItem.findOrCreate({
     where: { CartId: cart.id, ProductId: productId },
     defaults: { quantity }

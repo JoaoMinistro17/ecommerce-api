@@ -35,6 +35,16 @@ exports.getAllProducts = async (query) => {
 
     return products;
 };
+// Obter produto por ID
+exports.getProductById = async (id) => {
+  const product = await Product.findByPk(id);
+  if (!product) {
+    const err = new Error('Produto não encontrado');
+    err.status = 404;
+    throw err;
+  }
+  return product;
+};
 // Criar produto
 exports.createProduct = async ({ name, description, price, stock }) => {
   if (!name || price <= 0) {

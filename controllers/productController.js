@@ -11,6 +11,20 @@ exports.getAllProducts = async (req, res) => {
   }
 };
 
+// GET /api/products/:id
+exports.getProductById = async (req, res) => {
+  try {
+    const product = await productService.getProductById(req.params.id);
+    if (!product) {
+      return res.status(404).json({ error: 'Produto não encontrado' });
+    }
+    res.json(product);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao buscar produto' });
+  }
+}
+
 // POST /api/products
 exports.createProduct = async (req, res) => {
   try {

@@ -4,10 +4,11 @@ const productController = require('../controllers/productController');
 const auth = require('../middleware/authMiddleware');
 const admin = require('../middleware/adminMiddleware');
 
-// Rotas públicas
+// Public
 router.get('/', productController.getAllProducts);
+router.get('/:id', productController.getProductById);
 
-// Rotas protegidas (admin)
+// Private
 router.post('/', auth, admin, productController.createProduct);
 router.put('/:id', auth, admin, productController.updateProduct);
 router.delete('/:id', auth, admin, productController.deleteProduct);
