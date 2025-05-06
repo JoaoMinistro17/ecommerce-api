@@ -34,11 +34,30 @@ exports.addToCart = async (req, res) => {
 exports.removeFromCart = async (req, res) => {
   const { productId } = req.body;
   const user = await User.findByPk(req.user.id, { include: Cart });
-
   const cart = user.Cart;
-  await CartItem.destroy({
+  const item = await CartItem.findOne({
     where: { CartId: cart.id, ProductId: productId }
   });
-
-  res.json({ message: 'Produto removido do carrinho' });
+  if (item) {
+    await item.destroy();
+    res.status(200).json({ message: 'Produto removido do carrinho' });
+  } else {
+    res.status(404).json({ message: 'Produto não encontrado no carrinho' });
+  }
 };
+
+exports.updateCartItem = async (req, res) => {
+  const { productId, quantity } = req.body;
+  const user = await User.findByPk(req.user.id, { include: Cart });
+  const cart = user.Cart;
+  const item = await CartItem.findOne({
+    where: { CartId: cart.id, ProductId: productId }
+  });
+  if (item) {
+    item.quantity = quantity;
+    await item.save();
+    res.status(200).json({ message: 'Quantidade atualizada' });
+  } else {
+    res.status(404).json({ message: 'Produto não encontrado no carrinho' });
+  }
+}

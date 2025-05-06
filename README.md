@@ -21,12 +21,6 @@ cd ecommerce-api
 npm install
 ```
 
-Cria um ficheiro `.env` com:
-
-```env
-JWT_SECRET=segredo_super_secreto
-```
-
 Inicia o servidor com:
 
 ```bash

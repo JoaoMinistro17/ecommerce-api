@@ -1,7 +1,7 @@
 const { Product } = require('../models');
 const { Op } = require('sequelize');
 
-// Obtém todos os produtos com filtros e paginação 
+// with filtering, sorting and pagination
 exports.getAllProducts = async (query) => {
     const { search, minPrice, maxPrice, sortBy, order, inStock, page = 1, limit = 10 } = query;
 
@@ -35,7 +35,6 @@ exports.getAllProducts = async (query) => {
 
     return products;
 };
-// Obter produto por ID
 exports.getProductById = async (id) => {
   const product = await Product.findByPk(id);
   if (!product) {
@@ -45,7 +44,6 @@ exports.getProductById = async (id) => {
   }
   return product;
 };
-// Criar produto
 exports.createProduct = async ({ name, description, price, stock }) => {
   if (!name || price <= 0) {
     const err = new Error('Dados inválidos');
@@ -61,7 +59,6 @@ exports.createProduct = async ({ name, description, price, stock }) => {
   const product = await Product.create({ name, description, price, stock });
   return { message: 'Produto criado', product };
 };
-// Atualizar produto
 exports.updateProduct = async (id, { name, description, price, stock }) => {
     const product = await Product.findByPk(id);
     if (!product) {
@@ -73,7 +70,6 @@ exports.updateProduct = async (id, { name, description, price, stock }) => {
     await product.update({ name, description, price, stock });
     return product;
 };
-// Eliminar produto
 exports.deleteProduct = async (id) => {
     const product = await Product.findByPk(id);
     if (!product) {
