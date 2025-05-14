@@ -9,7 +9,7 @@ Uma API RESTful para um sistema de e-commerce, desenvolvida com Node.js, Express
 - Sequelize + SQLite (ou PostgreSQL/MySQL)
 - JWT (JSON Web Token)
 - Jest + Supertest (testes)
-- Swagger (documentação)
+- Swagger (documentação em teste)
 
 ---
 
@@ -135,5 +135,5 @@ curl -H "Authorization: Bearer <token>" http://localhost:3000/api/users/profile
 
 ## 🧑‍💻 Autor
 
-João Daniel Maciel Ministro  
+João Ministro  
 Desenvolvedor 
