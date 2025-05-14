@@ -81,7 +81,7 @@ npm test
 |--------|-------------------|-------------------------------|
 | GET    | `/api/cart`       | Ver carrinho do utilizador    |
 | POST   | `/api/cart/add`   | Adicionar produto ao carrinho |
-| POST   | `/api/cart/remove`| Remover produto do carrinho   |
+| DELETE   | `/api/cart/remove`| Remover produto do carrinho   |
 
 ---
 
