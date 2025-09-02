@@ -1,5 +1,4 @@
 const { User, CartItem, Order, OrderItem, Product } = require('../models');
-const { Op } = require("sequelize");
 
 exports.checkout = async (userId) => {
   const user = await User.findByPk(userId, {

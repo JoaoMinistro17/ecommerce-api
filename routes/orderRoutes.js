@@ -8,7 +8,7 @@ const admin = require('../middleware/adminMiddleware');
 router.post('/checkout', auth, orderController.checkout);
 router.get('/', auth, orderController.getOrders);
 
-//Private
+// Private
 router.get('/all', auth, admin, orderController.getAllOrders);
 
 module.exports = router;

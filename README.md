@@ -2,7 +2,7 @@
 
 Uma API RESTful para um sistema de e-commerce, desenvolvida com Node.js, Express e Sequelize, com autenticação via JWT. Suporta gestão de utilizadores, produtos, carrinho de compras e encomendas.
 
-## 🚀 Tecnologias
+## 🚀 Tech Stack
 
 - Node.js
 - Express
@@ -13,7 +13,7 @@ Uma API RESTful para um sistema de e-commerce, desenvolvida com Node.js, Express
 
 ---
 
-## ⚙️ Instalação
+## ⚙️ How to run it
 
 ```bash
 git clone https://github.com/teu-username/ecommerce-api.git
@@ -29,10 +29,10 @@ npm start
 
 ---
 
-## 🧪 Testes
+## 🧪 Tests
 
 ```bash
-npm test
+npm test and then cart.test.js or order.test.js or product.test.js or user.test.js
 ```
 
 ---

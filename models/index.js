@@ -12,7 +12,7 @@ Cart.belongsTo(User);
 Cart.belongsToMany(Product, { through: CartItem });
 Product.belongsToMany(Cart, { through: CartItem });
 
-// Encomendas
+// Orders
 User.hasMany(Order);
 Order.belongsTo(User);
 Order.belongsToMany(Product, { through: OrderItem });

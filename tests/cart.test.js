@@ -67,10 +67,10 @@ describe('GET /api/cart', () => {
   });
 });
 
-describe('POST /api/cart/remove', () => {
+describe('DELETE /api/cart/remove', () => {
   it('deve remover um produto do carrinho', async () => {
     const res = await request(app)
-      .post('/api/cart/remove')
+      .delete('/api/cart/remove')
       .set('Authorization', `Bearer ${userToken}`)
       .send({ productId });
 
